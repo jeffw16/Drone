@@ -1,16 +1,16 @@
 <template>
   <div id="dronedata3" class="horizontalFlexParent">
-    <div class="obj pidcontainer" pid="kp">
-      <h5>kp</h5>
-      <h1 id="kp">{{kp}}</h1>
+    <div class="obj altpidcontainer" pid="kp">
+      <h5>Altitude kp</h5>
+      <h1 id="altkp">{{kp}}</h1>
     </div>
-    <div class="obj pidcontainer" pid="ki">
+    <div class="obj altpidcontainer" pid="ki">
       <h5>ki</h5>
-      <h1 id="ki">{{ki}}</h1>
+      <h1 id="altki">{{ki}}</h1>
     </div>
-    <div class="obj pidcontainer" pid="kd">
+    <div class="obj altpidcontainer" pid="kd">
       <h5>kd</h5>
-      <h1 id="kd">{{kd}}</h1>
+      <h1 id="altkd">{{kd}}</h1>
     </div>
   </div>
 </template>
@@ -25,18 +25,18 @@ export default {
   }
 }
 //this.altitude = 5;
-socket.on('pidData', function( data ) {
-  console.log('Receiving data (pidData)', data);
-  document.getElementById('kp').innerHTML = data.kp;
-  document.getElementById('ki').innerHTML = data.ki;
-  document.getElementById('kd').innerHTML = data.kd;
+socket.on('pidAltData', function( data ) {
+  console.log('Receiving data (pidAltData)', data);
+  document.getElementById('altkp').innerHTML = data.kp;
+  document.getElementById('altki').innerHTML = data.ki;
+  document.getElementById('altkd').innerHTML = data.kd;
 });
 
-$('body').on('click', '.pidcontainer', function() {
+$('body').on('click', '.altpidcontainer', function() {
 var pid = $(this).attr('pid');
-var val = prompt( 'Enter new value for ' + pid, document.getElementById(pid).innerHTML );
-socket.emit('update' + pid, val);
-console.log('update' + pid + ' sent with ' + val);
+var val = prompt( 'Enter new value for ' + pid, document.getElementById('alt' + pid).innerHTML );
+socket.emit('updatealt' + pid, val);
+console.log('updatealt' + pid + ' sent with ' + val);
 });
 </script>
 

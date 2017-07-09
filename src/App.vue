@@ -29,6 +29,11 @@
               <dronedata3></dronedata3>
             </div>
           </el-col>
+          <el-col :span="13" class="hgt25 mgt">
+            <div class="uibox hundo">
+              <dronedata4></dronedata4>
+            </div>
+          </el-col>
         </el-row>
       </div>
     </div>

@@ -8,6 +8,7 @@ import App from './App'
 import dronedata from './components/DroneData'
 import dronedata2 from './components/DroneData2'
 import dronedata3 from './components/DroneData3'
+import dronedata4 from './components/DroneData4'
 import datafeed from './components/DataFeed'
 import executecommands from './components/ExecuteCommands'
 import router from './router'
@@ -19,6 +20,7 @@ Vue.component('executecommands', executecommands)
 Vue.component('datafeed', datafeed)
 Vue.component('dronedata2', dronedata2)
 Vue.component('dronedata3', dronedata3)
+Vue.component('dronedata4', dronedata4)
 
 Vue.config.productionTip = false
 
