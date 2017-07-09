@@ -1,36 +1,33 @@
 <template>
-  <div id="dronedata" class="horizontalFlexParent">
+  <div id="dronedata2" class="horizontalFlexParent">
     <div class="obj">
-      <h5>Altitude</h5>
-      <h3 id="altitude">{{altitude}}</h3>
+      <h5>Acceleration X</h5>
+      <h3 id="accelx">{{accelx}}</h3>
     </div>
     <div class="obj">
-      <h5>Roll</h5>
-      <h3 id="roll">{{roll}}</h3>
+      <h5>Y</h5>
+      <h3 id="accely">{{accely}}</h3>
     </div>
     <div class="obj">
-      <h5>Pitch</h5>
-      <h3 id="pitch">{{pitch}}</h3>
-    </div>
-    <div class="obj">
-      <h5>Yaw</h5>
-      <h3 id="yaw">{{yaw}}</h3>
+      <h5>Z</h5>
+      <h3 id="accelz">{{accelz}}</h3>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'dronedata',
+  name: 'dronedata2',
   data () {
     return {
-      altitude: 30,
-      yaw: 30,
-      roll: 30,
-      pitch: 30,
+      accelx: 0,
+      accely: 0,
+      accelz: 0,
+      a: 1,
     }
   }
 }
+//this.altitude = 5;
 function expoform( num ) {
 var numstr = String(num);
 var indexpo = numstr.indexOf('e');
@@ -41,16 +38,16 @@ return numstr;
 }
 socket.on('clientReceiveData', function( data ) {
   console.log('Receiving data (DroneData)', data);
-  document.getElementById('altitude').innerHTML = expoform(Number(data.alt).toPrecision(2));
-  document.getElementById('yaw').innerHTML = expoform(Number(data.rotz).toPrecision(2));
-  document.getElementById('roll').innerHTML = expoform(Number(data.rotx).toPrecision(4));
-  document.getElementById('pitch').innerHTML = expoform(Number(data.roty).toPrecision(4));
+  document.getElementById('accelx').innerHTML = expoform(Number(data.accx).toPrecision(4));
+  document.getElementById('accely').innerHTML = expoform(Number(data.accy).toPrecision(4));
+  document.getElementById('accelz').innerHTML = expoform(Number(data.accz).toPrecision(4));
+  //document.getElementById('').innerHTML = ;
 });
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#dronedata {
+#dronedata2 {
   width: 95%;
   margin: 0 auto;
   height: 100%;

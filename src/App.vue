@@ -21,7 +21,12 @@
           </el-col>
           <el-col :span="13" class="hgt25 mgt">
             <div class="uibox hundo">
-              <dronedata></dronedata>
+              <dronedata2></dronedata2>
+            </div>
+          </el-col>
+          <el-col :span="13" class="hgt25 mgt">
+            <div class="uibox hundo">
+              <dronedata3></dronedata3>
             </div>
           </el-col>
         </el-row>

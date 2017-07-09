@@ -1,20 +1,48 @@
 <template>
   <div id="dronedata" class="horizontalFlexParent">
     <el-tooltip class="item" effect="dark" content="Execute Command" placement="top">
-      <el-button type="success" size="large" icon="check"> Start</el-button>
+      <el-button type="success" id="startbtn" v-on:click="start" size="large" icon="check"> Start</el-button>
     </el-tooltip>
     <el-tooltip class="item" effect="dark" content="Force drone to hover in place" placement="top">
-      <el-button type="warning" size="large" icon="warning"> Pause</el-button>
+      <el-button type="warning" id="pausebtn" v-on:click="pause" size="large" icon="warning"> Pause</el-button>
     </el-tooltip>
     <el-tooltip class="item" effect="dark" content="Force drone to return to starting position" placement="top">
-      <el-button type="danger" size="large" icon="circle-cross"> Cancel</el-button>
+      <el-button type="danger" id="stopbtn" v-on:click="stop" size="large" icon="circle-cross"> Cancel</el-button>
     </el-tooltip>
   </div>
 </template>
 
 <script>
+//var socket2 = io('http://dronesim.mywikis.com:3000');
+
 export default {
-  name: 'executecommands'
+  name: 'executecommands',
+/*
+}
+
+var startbutton = new Vue({
+  el: '#startbtn',
+*/
+  methods: {
+    start: function(event) {
+      /*
+      socket.on('connection', function( data ) {
+        console.log('Client connected to server.');
+        socket.on('message', function( data ) {
+          console.log('Message from server:', data);
+        });
+      });
+      */
+      droneStart();
+    },
+    pause: function(event) {
+      alert('Pause');
+    },
+    stop: function(event) {
+      alert('Stop');
+    }
+  }
+//});
 }
 </script>
 

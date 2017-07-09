@@ -17,24 +17,19 @@
     <script src="http://dronesim.mywikis.com:3000/socket.io/socket.io.js"></script>
     <script>
       var socket = io('http://dronesim.mywikis.com:3000');
-      var dronedata;
-      
-      socket.connect();
-      socket.on('connection', function( data ) {
-        console.log('Client connected');
-      });
-      socket.on('message', function( data ) {
-        console.log('Message received:', data);
-      });
-      
+      //socket.connect();
+      //socket.on('connection', function( data ) {
+      //  console.log('Client connected');
+      //  socket.on('message', function( data ) {
+      //    console.log('Message received (A):', data);
+      //  });
+      //});
       function droneStart() {
         console.log('Drone start triggered');
+        socket.on('message', function( data ) {
+          console.log('Message received (B):', data);
+        });
       }
-
-      //socket.on('clientReceiveData', function( data ) {
-      //  console.log('Receiving data', data);
-      //  dronedata.return.altitude = data.alt;
-      //});
     </script>
   </body>
 </html>
