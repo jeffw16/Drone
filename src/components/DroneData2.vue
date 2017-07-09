@@ -32,7 +32,7 @@ function expoform( num ) {
 var numstr = String(num);
 var indexpo = numstr.indexOf('e');
 if ( indexpo != -1 ) {
-numstr = numstr.substring(0, indexpo) + "<sup>" + numstr.substring(indexpo + 1) + "</sup>";
+numstr = numstr.substring(0, indexpo) + " &times; 10<sup>" + numstr.substring(indexpo + 1) + "</sup>";
 }
 return numstr;
 }
@@ -63,6 +63,6 @@ socket.on('clientReceiveData', function( data ) {
 .obj > h3 {
   font-weight: 400;
   margin: 0;
-  font-size: 5em;
+  font-size: 1em;
 }
 </style>
