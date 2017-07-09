@@ -1,14 +1,14 @@
 <template>
   <div id="dronedata3" class="horizontalFlexParent">
-    <div class="obj">
+    <div class="obj pidcontainer" pid="kp">
       <h5>kp</h5>
       <h1 id="kp">{{kp}}</h1>
     </div>
-    <div class="obj">
+    <div class="obj pidcontainer" pid="ki">
       <h5>ki</h5>
       <h1 id="ki">{{ki}}</h1>
     </div>
-    <div class="obj">
+    <div class="obj pidcontainer" pid="kd">
       <h5>kd</h5>
       <h1 id="kd">{{kd}}</h1>
     </div>
@@ -30,6 +30,13 @@ socket.on('pidData', function( data ) {
   document.getElementById('kp').innerHTML = data.kp;
   document.getElementById('ki').innerHTML = data.ki;
   document.getElementById('kd').innerHTML = data.kd;
+});
+
+$('body').on('click', '.pidcontainer', function() {
+var pid = $(this).attr('pid');
+var val = prompt( 'Enter new value for ' + pid, document.getElementById(pid).innerHTML );
+socket.emit('update' + pid, val);
+console.log('update' + pid + ' sent with ' + val);
 });
 </script>
 
